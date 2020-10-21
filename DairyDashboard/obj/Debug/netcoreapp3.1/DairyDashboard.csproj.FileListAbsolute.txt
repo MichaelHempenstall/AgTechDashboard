@@ -9,7 +9,6 @@ C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\DairyDashboard.pdb
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\DairyDashboard.Views.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\DairyDashboard.Views.pdb
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csprojAssemblyReference.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.AssemblyInfoInputs.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.AssemblyInfo.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csproj.CoreCompileInputs.cache
