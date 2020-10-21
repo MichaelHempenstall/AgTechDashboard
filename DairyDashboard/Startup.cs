@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace DairyDashboard
 {
+    //test comment for Git 
     public class Startup
     {
         public Startup(IConfiguration configuration)
