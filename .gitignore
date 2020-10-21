@@ -1,0 +1,5 @@
+git_updates.txt
+*.dll
+*.exe
+*.cache
+*.pdb
