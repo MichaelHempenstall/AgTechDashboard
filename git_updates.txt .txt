@@ -1,5 +1,0 @@
-git add .
-
-git commit -m "Test Update"
-
-git push -u origin main
