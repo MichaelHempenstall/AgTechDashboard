@@ -1,2 +1,12 @@
 #Ignore Git updates 
 git_updates.txt
+
+#Dll files 
+*.dll
+
+#cache files
+*.cache
+
+#pdb files
+*.pdb 
+*.exe
