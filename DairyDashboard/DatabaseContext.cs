@@ -11,5 +11,9 @@ namespace DairyDashboard
         }
 
         public DbSet<Student> Students { get; set; }
+        public DbSet<Farms> Farms { get; set; }
+        public DbSet<Machines> Machines { get; set; }
+        public DbSet<MachineData> MachineDatas { get; set; }
+
     }
 }

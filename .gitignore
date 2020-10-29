@@ -3,3 +3,5 @@ git_updates.txt
 *.exe
 *.cache
 *.pdb
+/DairyDashboard/Database/AgTech.db-shm
+/DairyDashboard/Database/AgTech.db-wal
