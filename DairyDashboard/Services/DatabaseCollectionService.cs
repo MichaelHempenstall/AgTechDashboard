@@ -1,6 +1,7 @@
 ﻿using DairyDashboard.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.Collections.Generic;
+using System.IO;
 
 namespace DairyDashboard.Services
 {
@@ -13,9 +14,11 @@ namespace DairyDashboard.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        //private string JsonDatabase()
-        ///{ }
-        ///
+        //private string DatabaseConnection()
+        //{
+        //    //get { return Path.Combine(WebHostEnvironment.WebRootPath, "database", "AgTech.db") };
+        //}
+        
 
         //public IEnumerable<MachineData> GetMachineData()
         //{

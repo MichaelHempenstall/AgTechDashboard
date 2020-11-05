@@ -29,12 +29,12 @@ a {
 html {
   font-size: 14px;
 }
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   html {
     font-size: 16px;
   }
 }
-
+*/
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
@@ -68,4 +68,29 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    /*padding: 10px;*/
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .column {
+        width: 100%;
+    }
 }
