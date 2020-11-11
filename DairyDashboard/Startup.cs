@@ -13,7 +13,7 @@ namespace DairyDashboard
             Configuration = configuration;
 
             //ensure database is created 
-            using (var client = new DatabaseContext())
+            using (var client = new AgTechContext())
             {
                 client.Database.EnsureCreated();
             }
@@ -25,7 +25,7 @@ namespace DairyDashboard
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddEntityFrameworkSqlite().AddDbContext<DatabaseContext>();
+            services.AddEntityFrameworkSqlite().AddDbContext<AgTechContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,16 +7,16 @@ namespace DairyDashboard.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly DatabaseContext _context;
+        private readonly AgTechContext _context;
 
-        public HomeController(DatabaseContext context)
+        public HomeController(AgTechContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
         {
-            using (var dbContext = new DatabaseContext())
+            using (var dbContext = new AgTechContext())
             {
                 _context.Database.EnsureCreated();
             }
@@ -25,7 +25,7 @@ namespace DairyDashboard.Controllers
             return View();
         }
 
-        public List<Farms> GetFarms()
+        public List<Farm> GetFarms()
         {
             return _context.Farms.ToList();
         }

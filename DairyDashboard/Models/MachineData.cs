@@ -13,6 +13,5 @@ namespace DairyDashboard.Models
         public DateTime ValueDateTime{ get; set; }
         public int CurrentUsage { get; set; }
 
-        public override string ToString() => JsonSerializer.Serialize<MachineData>(this);
     }
 }

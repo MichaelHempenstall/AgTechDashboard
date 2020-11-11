@@ -70,7 +70,6 @@ C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csprojAssemblyReference.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -165,10 +164,17 @@ C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csproj.CoreCompileInputs.cache
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csprojAssemblyReference.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Create.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Delete.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Details.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Edit.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Index.cshtml.g.cs
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csproj.CoreCompileInputs.cache
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.MvcApplicationPartsAssemblyInfo.cache

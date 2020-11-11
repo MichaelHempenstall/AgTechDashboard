@@ -7,31 +7,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DairyDashboard;
 using DairyDashboard.Models;
+using System.Web.Helpers;
 
 namespace DairyDashboard.Controllers
 {
     public class FarmsController : Controller
     {
-        private readonly DatabaseContext _context;
+        private readonly AgTechContext _context;
 
-        public FarmsController(DatabaseContext context)
+        public FarmsController(AgTechContext context)
         {
             _context = context;
-        }
-
-        public FarmsController()
-        {
         }
 
         // GET: Farms
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Farms.ToListAsync());
-        }
 
-        public List<Farms> GetFarms()
-        {
-            return _context.Farms.ToList();
+            return View(await _context.Farms.ToListAsync());
         }
 
         // GET: Farms/Details/5
@@ -42,14 +35,14 @@ namespace DairyDashboard.Controllers
                 return NotFound();
             }
 
-            var farms = await _context.Farms
+            var farm = await _context.Farms
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (farms == null)
+            if (farm == null)
             {
                 return NotFound();
             }
 
-            return View(farms);
+            return View(farm);
         }
 
         // GET: Farms/Create
@@ -63,15 +56,15 @@ namespace DairyDashboard.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FarmName")] Farms farms)
+        public async Task<IActionResult> Create([Bind("Id,FarmName")] Farm farm)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(farms);
+                _context.Add(farm);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(farms);
+            return View(farm);
         }
 
         // GET: Farms/Edit/5
@@ -82,12 +75,12 @@ namespace DairyDashboard.Controllers
                 return NotFound();
             }
 
-            var farms = await _context.Farms.FindAsync(id);
-            if (farms == null)
+            var farm = await _context.Farms.FindAsync(id);
+            if (farm == null)
             {
                 return NotFound();
             }
-            return View(farms);
+            return View(farm);
         }
 
         // POST: Farms/Edit/5
@@ -95,9 +88,9 @@ namespace DairyDashboard.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FarmName")] Farms farms)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FarmName")] Farm farm)
         {
-            if (id != farms.Id)
+            if (id != farm.Id)
             {
                 return NotFound();
             }
@@ -106,12 +99,12 @@ namespace DairyDashboard.Controllers
             {
                 try
                 {
-                    _context.Update(farms);
+                    _context.Update(farm);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FarmsExists(farms.Id))
+                    if (!FarmExists(farm.Id))
                     {
                         return NotFound();
                     }
@@ -122,7 +115,7 @@ namespace DairyDashboard.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(farms);
+            return View(farm);
         }
 
         // GET: Farms/Delete/5
@@ -133,14 +126,14 @@ namespace DairyDashboard.Controllers
                 return NotFound();
             }
 
-            var farms = await _context.Farms
+            var farm = await _context.Farms
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (farms == null)
+            if (farm == null)
             {
                 return NotFound();
             }
 
-            return View(farms);
+            return View(farm);
         }
 
         // POST: Farms/Delete/5
@@ -148,15 +141,27 @@ namespace DairyDashboard.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var farms = await _context.Farms.FindAsync(id);
-            _context.Farms.Remove(farms);
+            var farm = await _context.Farms.FindAsync(id);
+            _context.Farms.Remove(farm);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FarmsExists(int id)
+        private bool FarmExists(int id)
         {
             return _context.Farms.Any(e => e.Id == id);
         }
+
+        public ActionResult CreatePie()
+        {
+            //Create bar chart
+            //var chart = new Chart(width: 300, height: 200)
+            //.AddSeries(chartType: "pie",
+            //                xValue: new[] { "10 ", "50", "30 ", "70" },
+            //                yValues: new[] { "50", "70", "90", "110" })
+            //                .GetBytes("png");
+            return (View); // File(chart, "image/bytes");
+        }
+
     }
 }
