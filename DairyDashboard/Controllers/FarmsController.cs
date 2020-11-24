@@ -1,13 +1,11 @@
-﻿using System;
+﻿using DairyDashboard.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using DairyDashboard;
-using DairyDashboard.Models;
-using System.Web.Helpers;
+
 
 namespace DairyDashboard.Controllers
 {
@@ -152,16 +150,37 @@ namespace DairyDashboard.Controllers
             return _context.Farms.Any(e => e.Id == id);
         }
 
-        public ActionResult CreatePie()
+        public ActionResult Dashboard()
         {
-            //Create bar chart
-            //var chart = new Chart(width: 300, height: 200)
-            //.AddSeries(chartType: "pie",
-            //                xValue: new[] { "10 ", "50", "30 ", "70" },
-            //                yValues: new[] { "50", "70", "90", "110" })
-            //                .GetBytes("png");
-            return (View); // File(chart, "image/bytes");
-        }
+            //var dataList = _context.MachineDatas.ToList();
+            //var repartitions = new List<int>();
+            //var usageList = dataList.Select(x => x.CurrentUsage).Distinct();
 
+            //foreach (var item in usageList)
+            //{
+            //    repartitions.Add(dataList.Count(x => x.CurrentUsage == item));
+            //}
+
+            //var rep = repartitions;
+            //ViewBag.USAGE = usageList;
+            //ViewBag.REP = repartitions.ToList();
+
+            var usageData = _context.MachineData.ToList();
+
+            List<object> obj = new List<object>();
+            
+            var UsageDate = usageData.Select(x => x.ValueDateTime).ToArray();
+            var Usage = usageData.Select(x => x.CurrentUsage).ToArray();
+            obj.Add(UsageDate);
+            obj.Add(Usage);
+
+            return Json(obj);                
+        }
     }
+
+    //public class UsageObject
+    //{
+    //    public DateTime UsageDate { get; set; }
+    //    public double Usage { get; set; }
+    //}
 }

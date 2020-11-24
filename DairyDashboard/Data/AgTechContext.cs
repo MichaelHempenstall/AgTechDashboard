@@ -11,14 +11,14 @@ namespace DairyDashboard
         public DbSet<Student> Students { get; set; }
         public DbSet<Farm> Farms { get; set; }
         public DbSet<Machine> Machines { get; set; }
-        public DbSet<MachineData> MachineDatas { get; set; }
+        public DbSet<MachineData> MachineData { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Farm>().ToTable("Farms");
-            modelBuilder.Entity<Machine>().ToTable("Machines");
-            modelBuilder.Entity<MachineData>().ToTable("MachineData");
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Farm>().ToTable("Farms");
+        //    modelBuilder.Entity<Machine>().ToTable("Machines");
+        //    modelBuilder.Entity<MachineData>().ToTable("MachineData");
+        //}
 
     }
 }

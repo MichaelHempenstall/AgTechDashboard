@@ -12,6 +12,5 @@ namespace DairyDashboard.Models
         public int MachineId { get; set; }
         public DateTime ValueDateTime{ get; set; }
         public int CurrentUsage { get; set; }
-
     }
 }
