@@ -102,4 +102,12 @@
                 new Chart(ctx, options);
             })
         })
+
+        $(".dropdown-menu a").click(function () {
+            var selectId = $(this).attr('id')
+            $('#formId').submit(function (eventObj) {
+                $(this).append("<input type='hidden' name='selectClient' value=" + selectId + "/> ");
+                return true;
+            });
+        })
     </script>

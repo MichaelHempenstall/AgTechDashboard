@@ -152,19 +152,6 @@ namespace DairyDashboard.Controllers
 
         public ActionResult Dashboard()
         {
-            //var dataList = _context.MachineDatas.ToList();
-            //var repartitions = new List<int>();
-            //var usageList = dataList.Select(x => x.CurrentUsage).Distinct();
-
-            //foreach (var item in usageList)
-            //{
-            //    repartitions.Add(dataList.Count(x => x.CurrentUsage == item));
-            //}
-
-            //var rep = repartitions;
-            //ViewBag.USAGE = usageList;
-            //ViewBag.REP = repartitions.ToList();
-
             var usageData = _context.MachineData.ToList();
 
             List<object> obj = new List<object>();
@@ -176,11 +163,30 @@ namespace DairyDashboard.Controllers
 
             return Json(obj);                
         }
-    }
 
-    //public class UsageObject
-    //{
-    //    public DateTime UsageDate { get; set; }
-    //    public double Usage { get; set; }
-    //}
+        public ActionResult GetSingleFarmData(int farmId)
+        {
+            var usageData = _context.MachineData.ToList();
+
+            List<object> obj = new List<object>();
+
+            var singleFarmData = usageData.Where(x => x.FarmId == farmId).ToArray();
+            var machinery = singleFarmData.Select(x => x.MachineId).ToList().Distinct();
+            
+            foreach (var item in machinery)
+            {
+                var machineName = _context.Machines.Where(x => x.Id == item).FirstOrDefault();
+                var UsageDate = singleFarmData.Where(x => x.MachineId == item).ToArray();
+                var UsageDates = UsageDate.Select(x => x.ValueDateTime).ToArray();
+                var Usage = singleFarmData.Where(x => x.MachineId == item).ToArray();
+                var Usages = Usage.Select(x => x.CurrentUsage).ToArray();
+                obj.Add(machineName.MachineName);
+                obj.Add(UsageDates);
+                obj.Add(Usages);
+            }
+
+
+            return Json(obj);
+        }
+    }
 }
