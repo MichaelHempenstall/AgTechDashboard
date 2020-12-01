@@ -158,8 +158,6 @@ C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Details.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Edit.cshtml.g.cs
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\Index.cshtml.g.cs
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csproj.CoreCompileInputs.cache
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
@@ -176,3 +174,5 @@ C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\runtimes\linux-mips64\native\libe_sqlite3.so
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csprojAssemblyReference.cache
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csproj.CoreCompileInputs.cache
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.MvcApplicationPartsAssemblyInfo.cache

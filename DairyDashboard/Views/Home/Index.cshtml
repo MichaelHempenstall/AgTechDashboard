@@ -6,20 +6,29 @@
 @*<div class="page-header">
         <h1>@ViewData["Title"]</h1>
     </div>*@
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+</head>
 
-<div class="container">
-    <div class="btn-group">
+<div class="jumbotron">
+    <h1>Welcome to the Agri Tech energy usage dashboard</h1>
+
+    <p>Select the singel famr page if you wish to look at a frams single data</p>
+
+    <p>Select the comparison page if you want to compare a farm against the averag usage of all the farms</p>
+    <!--<div class="btn-group">
         <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Select Farm
         </button>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu">-->
             @*@foreach (var farm in )
         {*@
-            <a class="dropdown-item" href="#">Farm A..</a>
+            <!--<a class="dropdown-item" href="#">Farm A..</a>
             <a class="dropdown-item" href="#">Farm B..</a>
-            <a class="dropdown-item" href="#">Farm C..</a>
+            <a class="dropdown-item" href="#">Farm C..</a>-->
             @*}*@
-        </div>
+        <!--</div>
     </div>
     <div class="btn-group">
         <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,12 +37,11 @@
         <div class="dropdown-menu">
             ...
         </div>
-    </div>
-    @*<img src="avatar.png" alt="Avatar" class="avatar">*@
+    </div>-->
 </div>
 
 
-<div class="container"></div>
+@*<div class="container"></div>
 <div class="row">
     <div id="donutchart1" style="width: 300px; height: 200px;"></div>
     <div id="donutchart2" style="width: 300px; height: 200px;"></div>
@@ -69,5 +77,5 @@
         }
 </script>
 <script src="/assets/vendor/chart.js/dist/Chart.min.js"></script>
-<script src="/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+<script src="/assets/vendor/chart.js/dist/Chart.extension.js"></script>*@
 

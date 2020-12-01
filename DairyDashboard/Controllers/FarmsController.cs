@@ -185,7 +185,6 @@ namespace DairyDashboard.Controllers
                 obj.Add(Usages);
             }
 
-
             return Json(obj);
         }
     }
