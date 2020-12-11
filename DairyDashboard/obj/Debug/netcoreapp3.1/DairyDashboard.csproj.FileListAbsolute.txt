@@ -1,6 +1,5 @@
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\DairyDashboard.exe
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\DairyDashboard.deps.json
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\DairyDashboard.runtimeconfig.json
@@ -176,3 +175,4 @@ C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csprojAssemblyReference.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csproj.CoreCompileInputs.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\scopedcss\bundle\DairyDashboard.styles.css

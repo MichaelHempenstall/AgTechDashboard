@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SfQIc7h/9wU0VSDxr/kg3L6bk9qs5ZekYTwAF5Mjlaz24eKbjbmoqKXDhWSzKctTeoI7bLMxpVkBLT+Xsdr/eg==",
+  "dgSpecHash": "CN1G6i0akMgiXZwh158LxBIZVrzgNX2Gi6ynZIUsS2Q9mOrPI4pTDGck4nCUUla5YQqYB8oUNZIQv1Nsv5Ef4g==",
   "success": true,
   "projectFilePath": "C:\\Users\\mhemp\\source\\repos\\DairyDashboard\\DairyDashboard\\DairyDashboard.csproj",
   "expectedPackageFiles": [
@@ -172,7 +172,9 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\mhemp\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\mhemp\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.10\\microsoft.netcore.app.host.win-x64.3.1.10.nupkg.sha512"
   ],
   "logs": []
 }

@@ -9,18 +9,9 @@
 <head>
     <!-- js -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
-    @*<script src="https://unpkg.com/popperjs/core2"></script>*@
-    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
-    <!--<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>-->
-    @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>*@
     <script src="~/lib/chartsjs/Chart.bundle.min.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    @*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
-    @*<link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">*@
 </head>
 <body>
     <p>
@@ -28,7 +19,7 @@
     </p>
 
 
-    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select Farm
     </button>
     <div class="dropdown-menu">
@@ -37,8 +28,8 @@
             <a class="dropdown-item" href="#" id=@Html.DisplayFor(modelItem => item.Id)>@Html.DisplayFor(modelItem => item.FarmName)</a>
         }
     </div>
-
-    <div>
+    <div id="NoDataLabel"></div>
+    @*<div>
         <table>
             @foreach (var item in Model)
             {
@@ -54,7 +45,7 @@
                 </tr>
             }
         </table>
-    </div>
+    </div>*@
 
 </body>
 
@@ -65,7 +56,8 @@
 
     $('.dropdown-menu a').click(function () {
         let x = this.id;
-        alert(x)
+        ClearOldMessages();
+
 
         $.getJSON("/Farms/GetSingleFarmData",
             {
@@ -103,18 +95,23 @@
                         var ctx = canvas.getContext('2d')
                         var canvasId = "canvasId" + x++;
                         canvas.id = canvasId;
-                        canvas.width = 450;
-                        canvas.height = 750;
                         document.body.appendChild(canvas);
 
                         new Chart(ctx, options);
                     }
                 }
                 else {
-                    var noDataLabel = document.createElement('label');
-                    noDataLabel.innerHTML = "No Data for this Farm";
-                    document.body.appendChild(noDataLabel);
+                    document.getElementById("NoDataLabel").innerHTML = "There appears to be no data for this Farm";
                 }
         })
     });
+
+    function ClearOldMessages() {
+        document.getElementById("NoDataLabel").innerHTML = "";
+        for (z = 0; z <= 5; z++) {
+            var exists = document.getElementById('canvasId' + z);
+            if (exists != null)
+                document.getElementById('canvasId' + z).remove();
+        }
+    }
 </script>
