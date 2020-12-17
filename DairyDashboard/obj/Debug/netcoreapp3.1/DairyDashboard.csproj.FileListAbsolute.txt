@@ -172,7 +172,8 @@ C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\runtimes\linux-mips64\native\libe_sqlite3.so
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csprojAssemblyReference.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csproj.CoreCompileInputs.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\scopedcss\bundle\DairyDashboard.styles.css
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\Razor\Views\Farms\CompareFarms.cshtml.g.cs
+C:\Users\mhemp\source\repos\DairyDashboard\DairyDashboard\obj\Debug\netcoreapp3.1\DairyDashboard.csprojAssemblyReference.cache

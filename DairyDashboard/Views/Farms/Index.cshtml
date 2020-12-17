@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<DairyDashboard.Models.Farm>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Farms";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Single Farm Data</h1>
 <head>
     <!-- js -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <p>
+
+<div id="loader"></div>
+
+    @*<p>
         <a asp-action="Create">Create New</a>
-    </p>
+    </p>*@
 
 
     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

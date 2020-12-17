@@ -1,0 +1,88 @@
+﻿@model IEnumerable<DairyDashboard.Models.Farm>
+
+@{
+    ViewData["Title"] = "Farms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Compare Farm Data</h1>
+<head>
+    <!-- js -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/chartsjs/Chart.bundle.min.js"></script>
+    <script src="~/lib/utils.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Farm
+    </button>
+    <div class="dropdown-menu">
+        @foreach (var item in Model)
+        {
+            <a class="dropdown-item" href="#" id=@Html.DisplayFor(modelItem => item.Id)>@Html.DisplayFor(modelItem => item.FarmName)</a>
+        }
+    </div>
+    <div id="NoDataLabel"></div>
+</body>
+
+<script>
+    $(document).ready(function () {
+    })
+
+    $('.dropdown-menu a').click(function () {
+        let x = this.id;
+        ClearOldMessages();
+
+
+        $.getJSON("/Farms/GetCompareFarmData",
+            {
+                farmId: x
+            },
+            function (usageData) {
+                var x = 0;
+                if (usageData.length > 0) {
+                    usageData[1] += usageData[1] + 1000000;
+                    var y_data = usageData;
+
+                    var options = {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Farm', 'Average'],
+                            datasets: [{
+                                data: y_data,
+                                backgroundColor: [
+                                    window.chartColors.blue,
+                                    window.chartColors.yellow
+                                ]
+                            }]
+                        },
+                        options: {
+
+                        }
+                    }
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d')
+                    var canvasId = "canvasId-" + x++;
+                    canvas.style.cssText = 'width:40%';
+                    canvas.id = canvasId;
+                    document.body.appendChild(canvas);
+
+                    new Chart(ctx, options);
+                }
+                else {
+                    document.getElementById("NoDataLabel").innerHTML = "There appears to be no data for this Farm";
+                }
+            })
+    });
+
+    function ClearOldMessages() {
+        document.getElementById("NoDataLabel").innerHTML = "";
+        for (z = 0; z <= 5; z++) {
+            var exists = document.getElementById('canvasId-' + z);
+            if (exists != null)
+                document.getElementById('canvasId-' + z).remove();
+        }
+    }
+</script>

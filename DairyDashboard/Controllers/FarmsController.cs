@@ -25,6 +25,11 @@ namespace DairyDashboard.Controllers
             return View(await _context.Farms.ToListAsync());
         }
 
+        public async Task<IActionResult> CompareFarms()
+        {
+            return View(await _context.Farms.ToListAsync());
+        }
+
         // GET: Farms/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -185,6 +190,34 @@ namespace DairyDashboard.Controllers
                 obj.Add(Usages);
             }
 
+            return Json(obj);
+        }
+
+        public ActionResult GetCompareFarmData(int farmId)
+        {
+            var usageData = _context.MachineData.ToList();
+
+            List<object> obj = new List<object>();
+
+            //get farmid data 
+            var singleFarmData = usageData.Where(x => x.FarmId == farmId && x.CurrentUsage > 0).ToArray();
+            var singleFarmSum = 0;
+            foreach (var item in singleFarmData)
+            {
+                singleFarmSum += item.CurrentUsage;                
+            }
+
+            //get all other data 
+            var compareFarmData = usageData.Where(x => x.FarmId != farmId && x.CurrentUsage > 0).ToArray();
+            var compareFarmSum = 0;
+            foreach (var item in compareFarmData)
+            {
+                compareFarmSum += item.CurrentUsage;
+            }
+
+            obj.Add(singleFarmSum);
+            obj.Add(compareFarmSum);
+            
             return Json(obj);
         }
     }
