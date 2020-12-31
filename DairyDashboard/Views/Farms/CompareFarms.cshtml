@@ -24,7 +24,24 @@
             <a class="dropdown-item" href="#" id=@Html.DisplayFor(modelItem => item.Id)>@Html.DisplayFor(modelItem => item.FarmName)</a>
         }
     </div>
+    
+
     <div id="NoDataLabel"></div>
+
+    <div class="container m-5">
+        <div class="row">
+            <div class="col-md-6">
+                <p>The farms machinery electricity usage compared to the average of the other farms.</p>
+                <div id="leftChart" class="card mb-lg-4 box-shadow"></div>
+            </div>
+            <div class="col-md-6" style="border:thick">
+                <p>The current farms electricity usage compared to the renewable electricity usage.</p>
+                <div id="rightChart" class="card mb-lg-4 box-shadow"></div>
+            </div>
+        </div>
+    </div>
+
+    
 </body>
 
 <script>
@@ -43,7 +60,9 @@
             function (usageData) {
                 var x = 0;
                 if (usageData.length > 0) {
-                    usageData[1] += usageData[1] + 1000000;
+                    usageData[1] += usageData[1] + 10000000;
+                    //usageData[2] += usageData[2] + 15000000;
+                    //usageData[3] += usageData[3] + 10000000;
                     var y_data = usageData;
 
                     var options = {
@@ -62,14 +81,43 @@
 
                         }
                     }
+
+                    var iDiv = document.getElementById('leftChart');
                     var canvas = document.createElement('canvas');
+                    
                     var ctx = canvas.getContext('2d')
-                    var canvasId = "canvasId-" + x++;
-                    canvas.style.cssText = 'width:40%';
-                    canvas.id = canvasId;
-                    document.body.appendChild(canvas);
+                    //var canvasId = "canvasId-1";    // + x++;
+                    //canvas.style.cssText = 'width:40%';
+                    canvas.id = "canvasId-1"; //canvasId;
+                    //document.body.appendChild(canvas);
+                    iDiv.appendChild(canvas);
 
                     new Chart(ctx, options);
+
+                    var options1 = {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['1', '2'],
+                            datasets: [{
+                                data: y_data,
+                                backgroundColor: [
+                                    window.chartColors.blue,
+                                    window.chartColors.yellow
+                                ]
+                            }]
+                        }
+                    }
+
+                    var iDiv1 = document.getElementById('rightChart');
+                    var canvas1 = document.createElement('canvas');
+
+                    var ctx1 = canvas1.getContext('2d');
+                    var canvasId1 = "canvasId-2"; 
+                    canvas1.id = canvasId1;
+                    iDiv1.appendChild(canvas1);
+
+                    new Chart(ctx1, options1);
+
                 }
                 else {
                     document.getElementById("NoDataLabel").innerHTML = "There appears to be no data for this Farm";
