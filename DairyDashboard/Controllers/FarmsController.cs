@@ -155,6 +155,9 @@ namespace DairyDashboard.Controllers
             return _context.Farms.Any(e => e.Id == id);
         }
 
+        /// <summary>
+        /// Sample return for the dashboard
+        /// </summary>
         public ActionResult Dashboard()
         {
             var usageData = _context.MachineData.ToList();
@@ -169,6 +172,9 @@ namespace DairyDashboard.Controllers
             return Json(obj);                
         }
 
+        /// <summary>
+        /// Take the farm Id from the javascript call and return the usage data for that farm
+        /// </summary>
         public ActionResult GetSingleFarmData(int farmId)
         {
             var usageData = _context.MachineData.ToList();
@@ -193,6 +199,12 @@ namespace DairyDashboard.Controllers
             return Json(obj);
         }
 
+
+        /// <summary>
+        /// Take the farm Id from the javascript call and return the usage data for that farm
+        /// and the average data from the other farms
+        /// Also return the electricity usage 
+        /// </summary>
         public ActionResult GetCompareFarmData(int farmId)
         {
             var usageData = _context.MachineData.ToList();
