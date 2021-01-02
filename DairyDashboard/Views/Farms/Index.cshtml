@@ -103,10 +103,9 @@
                         canvas.id = canvasId;
                         document.body.appendChild(canvas);
 
-                        var x = document.createElement("h4");
-                        //x.style.color = "#587B7F";
-
+                        var x = document.createElement("h5");
                         x.style.textAlign = "center";
+                        x.id = 'infoLabel';
                         var t = document.createTextNode("Usage: Average: " + usageData[i + 3] + " Min: " + usageData[i + 4] + " Max: " + usageData[i + 5]);
                         x.appendChild(t);
                         document.body.appendChild(x);
@@ -123,10 +122,17 @@
 
     function ClearOldMessages() {
         document.getElementById("NoDataLabel").innerHTML = "";
+        var xExists = document.getElementById('infoLabel');
+        if (xExists)
+            document.getElementById('infoLabel').innerHTML = "";
+
         for (z = 0; z <= 5; z++) {
             var exists = document.getElementById('canvasId' + z);
             if (exists != null)
                 document.getElementById('canvasId' + z).remove();
+            var exists = document.getElementById('t' + z);
+            if (exists != null)
+                document.getElementById('t' + z).remove();
         }
     }
 </script>
