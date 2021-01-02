@@ -49,7 +49,9 @@
             }
         </table>
     </div>*@
-
+    <div>
+        <br/><br />
+    </div>
 </body>
 
 
@@ -69,7 +71,7 @@
             function (usageData) {
                 var x = 0;
                 if (usageData.length > 0) {
-                    for (i = 0; i < usageData.length; i = i + 3) {
+                    for (i = 0; i < usageData.length; i = i + 6) {
                         var machineName = usageData[i];
                         var x_data = usageData[i + 1];
                         var y_data = usageData[i + 2];
@@ -100,6 +102,15 @@
                         var canvasId = "canvasId" + x++;
                         canvas.id = canvasId;
                         document.body.appendChild(canvas);
+
+                        var x = document.createElement("h4");
+                        //x.style.color = "#587B7F";
+
+                        x.style.textAlign = "center";
+                        var t = document.createTextNode("Usage: Average: " + usageData[i + 3] + " Min: " + usageData[i + 4] + " Max: " + usageData[i + 5]);
+                        x.appendChild(t);
+                        document.body.appendChild(x);
+                        
 
                         new Chart(ctx, options);
                     }

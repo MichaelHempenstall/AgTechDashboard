@@ -191,9 +191,17 @@ namespace DairyDashboard.Controllers
                 var UsageDates = UsageDate.Select(x => x.ValueDateTime).ToArray();
                 var Usage = singleFarmData.Where(x => x.MachineId == item).ToArray();
                 var Usages = Usage.Select(x => x.CurrentUsage).ToArray();
+                var AvgUseTemp = Usage.Average(x => x.CurrentUsage).ToString();
+                var AvgUse = Math.Round(Decimal.Parse(AvgUseTemp), 2);
+                var MinUse = Usage.Min(x => x.CurrentUsage).ToString();
+                var MaxUse = Usage.Max(x => x.CurrentUsage).ToString();
+
                 obj.Add(machineName.MachineName);
                 obj.Add(UsageDates);
                 obj.Add(Usages);
+                obj.Add(AvgUse);
+                obj.Add(MinUse);
+                obj.Add(MaxUse);
             }
 
             return Json(obj);
