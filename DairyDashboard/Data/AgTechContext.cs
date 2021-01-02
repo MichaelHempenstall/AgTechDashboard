@@ -13,12 +13,8 @@ namespace DairyDashboard
         public DbSet<Machine> Machines { get; set; }
         public DbSet<MachineData> MachineData { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Farm>().ToTable("Farms");
-        //    modelBuilder.Entity<Machine>().ToTable("Machines");
-        //    modelBuilder.Entity<MachineData>().ToTable("MachineData");
-        //}
+        public DbSet<Electricity_Supply> Electricity_Supply { get; set; }
+        public DbSet<Electricity_Usage> Electricity_Usage { get; set; }
 
     }
 }
