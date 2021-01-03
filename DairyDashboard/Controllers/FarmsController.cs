@@ -216,6 +216,7 @@ namespace DairyDashboard.Controllers
         public ActionResult GetCompareFarmData(int farmId)
         {
             var usageData = _context.MachineData.ToList();
+            var electricityData = _context.Electricity_Usage.ToList();
 
             List<object> obj = new List<object>();
 
@@ -234,9 +235,28 @@ namespace DairyDashboard.Controllers
             {
                 compareFarmSum += item.CurrentUsage;
             }
+            compareFarmSum = compareFarmSum / 4;
+
+            var singleFarmEnergy = electricityData.Where(x => x.FarmId == farmId && x.CurrentUsage > 0).ToArray();
+            var singleFarmEnergySum = 0;
+            foreach (var item in singleFarmEnergy)
+            {
+                singleFarmEnergySum += item.CurrentUsage;
+            }
+
+            //get all other data 
+            var compareFarmEnergy = electricityData.Where(x => x.FarmId != farmId && x.CurrentUsage > 0).ToArray();
+            var compareFarmEnergySum = 0;
+            foreach (var item in compareFarmEnergy)
+            {
+                compareFarmEnergySum += item.CurrentUsage;
+            }
+            compareFarmEnergySum = compareFarmEnergySum / 4;
 
             obj.Add(singleFarmSum);
             obj.Add(compareFarmSum);
+            obj.Add(singleFarmEnergySum);
+            obj.Add(compareFarmEnergySum);
             
             return Json(obj);
         }

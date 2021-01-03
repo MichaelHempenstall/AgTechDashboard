@@ -59,16 +59,15 @@
                 var x = 0;
                 if (usageData.length > 0) {
                     usageData[1] += usageData[1] + 10000000;
-                    //usageData[2] += usageData[2] + 15000000;
-                    //usageData[3] += usageData[3] + 10000000;
-                    var y_data = usageData;
+                    var machine_data = [usageData[0], usageData[1]];
+                    var electric_data = [usageData[2], usageData[3]];
 
                     var options = {
                         type: 'doughnut',
                         data: {
                             labels: ['Farm', 'Average'],
                             datasets: [{
-                                data: y_data,
+                                data: machine_data,
                                 backgroundColor: [
                                     window.chartColors.blue,
                                     window.chartColors.yellow
@@ -95,9 +94,9 @@
                     var options1 = {
                         type: 'doughnut',
                         data: {
-                            labels: ['1', '2'],
+                            labels: ['Farms Energy Usage', 'Other Farms Energy Usage'],
                             datasets: [{
-                                data: y_data,
+                                data: electric_data,
                                 backgroundColor: [
                                     window.chartColors.blue,
                                     window.chartColors.yellow
