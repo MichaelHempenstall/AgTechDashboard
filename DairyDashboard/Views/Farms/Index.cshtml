@@ -15,42 +15,45 @@
 </head>
 <body>
 
-<div id="loader"></div>
+    <div id="loader"></div>
 
     @*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
+            <a asp-action="Create">Create New</a>
+        </p>*@
 
 
     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select Farm
     </button>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu" type="button">
         @foreach (var item in Model)
         {
             <a class="dropdown-item" href="#" id=@Html.DisplayFor(modelItem => item.Id)>@Html.DisplayFor(modelItem => item.FarmName)</a>
         }
     </div>
+    <button id="show_week" type="button" class="btn btn-info">Show Week</button>
+    <button id="show_month" type="button" class="btn btn-info">Show Month</button>
+
     <div id="NoDataLabel"></div>
     @*<div>
-        <table>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FarmName)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>*@
+            <table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FarmName)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>*@
     <div>
-        <br/><br />
+        <br /><br />
     </div>
 </body>
 
@@ -118,6 +121,124 @@
                     document.getElementById("NoDataLabel").innerHTML = "There appears to be no data for this Farm";
                 }
         })
+    });
+
+    $('#show_week').click(function () {
+        ClearOldMessages();
+
+
+        $.getJSON("/Farms/Show_Week",
+            //{
+            //    farmId: x
+            //},
+            function (usageData) {
+                var x = 0;
+                if (usageData.length > 0) {
+                    for (i = 0; i < usageData.length; i = i + 6) {
+                        var machineName = usageData[i];
+                        var x_data = usageData[i + 1];
+                        var y_data = usageData[i + 2];
+
+                        var options = {
+                            type: 'line',
+                            data: {
+                                labels: x_data,
+                                datasets: [{
+                                    label: machineName,
+                                    data: y_data,
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            reverse: false
+                                        }
+                                    }]
+                                }
+                            }
+                        }
+                        var canvas = document.createElement('canvas');
+                        var ctx = canvas.getContext('2d')
+                        var canvasId = "canvasId" + x++;
+                        canvas.id = canvasId;
+                        document.body.appendChild(canvas);
+
+                        var x = document.createElement("h5");
+                        x.style.textAlign = "center";
+                        x.id = 'infoLabel';
+                        var t = document.createTextNode("Usage: Average: " + usageData[i + 3] + " Min: " + usageData[i + 4] + " Max: " + usageData[i + 5]);
+                        x.appendChild(t);
+                        document.body.appendChild(x);
+
+
+                        new Chart(ctx, options);
+                    }
+                }
+                else {
+                    document.getElementById("NoDataLabel").innerHTML = "There appears to be no data for this Farm";
+                }
+            })
+    });
+
+    $('#show_month').click(function () {
+        ClearOldMessages();
+
+
+        $.getJSON("/Farms/Show_Month",
+            //{
+            //    farmId: x
+            //},
+            function (usageData) {
+                var x = 0;
+                if (usageData.length > 0) {
+                    for (i = 0; i < usageData.length; i = i + 6) {
+                        var machineName = usageData[i];
+                        var x_data = usageData[i + 1];
+                        var y_data = usageData[i + 2];
+
+                        var options = {
+                            type: 'line',
+                            data: {
+                                labels: x_data,
+                                datasets: [{
+                                    label: machineName,
+                                    data: y_data,
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            reverse: false
+                                        }
+                                    }]
+                                }
+                            }
+                        }
+                        var canvas = document.createElement('canvas');
+                        var ctx = canvas.getContext('2d')
+                        var canvasId = "canvasId" + x++;
+                        canvas.id = canvasId;
+                        document.body.appendChild(canvas);
+
+                        var x = document.createElement("h5");
+                        x.style.textAlign = "center";
+                        x.id = 'infoLabel';
+                        var t = document.createTextNode("Usage: Average: " + usageData[i + 3] + " Min: " + usageData[i + 4] + " Max: " + usageData[i + 5]);
+                        x.appendChild(t);
+                        document.body.appendChild(x);
+
+
+                        new Chart(ctx, options);
+                    }
+                }
+                else {
+                    document.getElementById("NoDataLabel").innerHTML = "There appears to be no data for this Farm";
+                }
+            })
     });
 
     function ClearOldMessages() {

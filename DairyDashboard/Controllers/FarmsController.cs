@@ -207,6 +207,75 @@ namespace DairyDashboard.Controllers
             return Json(obj);
         }
 
+        public ActionResult Show_Week()
+        {
+            int farmId = 1;
+            var usageData = _context.MachineData.ToList();
+
+            List<object> obj = new List<object>();
+
+            DateTime dateStart = new DateTime(2020, 11, 08);
+            DateTime dateEnd = new DateTime(2020, 11, 14);
+            var singleFarmData = usageData.Where(x => x.FarmId == farmId && x.ValueDateTime >= dateStart && x.ValueDateTime <= dateEnd).ToArray();
+            var machinery = singleFarmData.Select(x => x.MachineId).ToList().Distinct();
+
+            foreach (var item in machinery)
+            {
+                var machineName = _context.Machines.Where(x => x.Id == item).FirstOrDefault();
+                var UsageDate = singleFarmData.Where(x => x.MachineId == item).ToArray();
+                var UsageDates = UsageDate.Select(x => x.ValueDateTime).ToArray();
+                var Usage = singleFarmData.Where(x => x.MachineId == item).ToArray();
+                var Usages = Usage.Select(x => x.CurrentUsage).ToArray();
+                var AvgUseTemp = Usage.Average(x => x.CurrentUsage).ToString();
+                var AvgUse = Math.Round(Decimal.Parse(AvgUseTemp), 2);
+                var MinUse = Usage.Min(x => x.CurrentUsage).ToString();
+                var MaxUse = Usage.Max(x => x.CurrentUsage).ToString();
+
+                obj.Add(machineName.MachineName);
+                obj.Add(UsageDates);
+                obj.Add(Usages);
+                obj.Add(AvgUse);
+                obj.Add(MinUse);
+                obj.Add(MaxUse);
+            }
+
+            return Json(obj);
+        }
+
+        public ActionResult Show_Month()
+        {
+            int farmId = 1;
+            var usageData = _context.MachineData.ToList();
+
+            List<object> obj = new List<object>();
+
+            DateTime dateStart = new DateTime(2020, 11, 01);
+            DateTime dateEnd = new DateTime(2020, 11, 30);
+            var singleFarmData = usageData.Where(x => x.FarmId == farmId && x.ValueDateTime >= dateStart && x.ValueDateTime <= dateEnd).ToArray();
+            var machinery = singleFarmData.Select(x => x.MachineId).ToList().Distinct();
+
+            foreach (var item in machinery)
+            {
+                var machineName = _context.Machines.Where(x => x.Id == item).FirstOrDefault();
+                var UsageDate = singleFarmData.Where(x => x.MachineId == item).ToArray();
+                var UsageDates = UsageDate.Select(x => x.ValueDateTime).ToArray();
+                var Usage = singleFarmData.Where(x => x.MachineId == item).ToArray();
+                var Usages = Usage.Select(x => x.CurrentUsage).ToArray();
+                var AvgUseTemp = Usage.Average(x => x.CurrentUsage).ToString();
+                var AvgUse = Math.Round(Decimal.Parse(AvgUseTemp), 2);
+                var MinUse = Usage.Min(x => x.CurrentUsage).ToString();
+                var MaxUse = Usage.Max(x => x.CurrentUsage).ToString();
+
+                obj.Add(machineName.MachineName);
+                obj.Add(UsageDates);
+                obj.Add(Usages);
+                obj.Add(AvgUse);
+                obj.Add(MinUse);
+                obj.Add(MaxUse);
+            }
+
+            return Json(obj);
+        }
 
         /// <summary>
         /// Take the farm Id from the javascript call and return the usage data for that farm
