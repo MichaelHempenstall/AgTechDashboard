@@ -30,12 +30,16 @@
 
     <div class="container m-5">
         <div class="row">
-            <div class="col-md-6">
-                <p>The farms machinery electricity usage compared to the average of the other farms.</p>
+            <div class="col-md-4">
+                <p>The current farms machinery electricity usage compared to the average of the other farms.</p>
                 <div id="leftChart" class="card mb-lg-4 box-shadow"></div>
             </div>
-            <div class="col-md-6" style="border:thick">
-                <p>The current farms electricity usage compared to the renewable electricity usage.</p>
+            <div class="col-md-4" style="border:thick">
+                <p>The current farms electricity usage compared to the average electricity usage on other farms.</p>
+                <div id="midChart" class="card mb-lg-4 box-shadow"></div>
+            </div>
+            <div class="col-md-4" style="border:thick">
+                <p>The current farms electricity usage compared with the current farms renewable electricity.</p>
                 <div id="rightChart" class="card mb-lg-4 box-shadow"></div>
             </div>
         </div>
@@ -58,10 +62,11 @@
             function (usageData) {
                 var x = 0;
                 if (usageData.length > 0) {
-                    usageData[1] += usageData[1] + 10000000;
                     var machine_data = [usageData[0], usageData[1]];
                     var electric_data = [usageData[2], usageData[3]];
+                    var electric_vs_renewable = [usageData[4], usageData[5]];
 
+                    //farms v avg farms
                     var options = {
                         type: 'doughnut',
                         data: {
@@ -83,18 +88,16 @@
                     var canvas = document.createElement('canvas');
                     
                     var ctx = canvas.getContext('2d')
-                    //var canvasId = "canvasId-1";    // + x++;
-                    //canvas.style.cssText = 'width:40%';
-                    canvas.id = "canvasId-1"; //canvasId;
-                    //document.body.appendChild(canvas);
+                    canvas.id = "canvasId-1"; 
                     iDiv.appendChild(canvas);
 
                     new Chart(ctx, options);
 
+                    //Farms power vs other farms power
                     var options1 = {
                         type: 'doughnut',
                         data: {
-                            labels: ['Farms Energy Usage', 'Other Farms Energy Usage'],
+                            labels: ['Current Farms', 'Other Farms'],
                             datasets: [{
                                 data: electric_data,
                                 backgroundColor: [
@@ -105,7 +108,7 @@
                         }
                     }
 
-                    var iDiv1 = document.getElementById('rightChart');
+                    var iDiv1 = document.getElementById('midChart');
                     var canvas1 = document.createElement('canvas');
 
                     var ctx1 = canvas1.getContext('2d');
@@ -114,6 +117,31 @@
                     iDiv1.appendChild(canvas1);
 
                     new Chart(ctx1, options1);
+
+                    //farms grid vs renewable
+                    var options2 = {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Grid', 'Renewable'],
+                            datasets: [{
+                                data: electric_vs_renewable,
+                                backgroundColor: [
+                                    window.chartColors.blue,
+                                    window.chartColors.yellow
+                                ]
+                            }]
+                        }
+                    }
+
+                    var iDiv2 = document.getElementById('rightChart');
+                    var canvas2 = document.createElement('canvas');
+
+                    var ctx2 = canvas2.getContext('2d');
+                    var canvasId2 = "canvasId-3";
+                    canvas2.id = canvasId2;
+                    iDiv2.appendChild(canvas2);
+
+                    new Chart(ctx2, options2);
 
                 }
                 else {

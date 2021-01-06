@@ -22,7 +22,7 @@
         </p>*@
 
 
-    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select Farm
     </button>
     <div class="dropdown-menu" type="button">
@@ -31,30 +31,32 @@
             <a class="dropdown-item" href="#" id=@Html.DisplayFor(modelItem => item.Id)>@Html.DisplayFor(modelItem => item.FarmName)</a>
         }
     </div>
-    <button id="show_week" type="button" class="btn btn-info">Show Week</button>
-    <button id="show_month" type="button" class="btn btn-info">Show Month</button>
-
-    <div id="NoDataLabel"></div>
-    @*<div>
-            <table>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FarmName)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </table>
-        </div>*@
-    <div>
-        <br /><br />
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button id="show_week" type="button" class="btn btn-info btn-group-lg">Show Week</button>
+        <button id="show_month" type="button" class="btn btn-info btn-group-lg">Show Month</button>
     </div>
+
+        <div id="NoDataLabel"></div>
+        @*<div>
+                <table>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FarmName)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>*@
+        <div>
+            <br /><br />
+        </div>
 </body>
 
 
@@ -126,11 +128,7 @@
     $('#show_week').click(function () {
         ClearOldMessages();
 
-
         $.getJSON("/Farms/Show_Week",
-            //{
-            //    farmId: x
-            //},
             function (usageData) {
                 var x = 0;
                 if (usageData.length > 0) {
@@ -185,11 +183,7 @@
     $('#show_month').click(function () {
         ClearOldMessages();
 
-
         $.getJSON("/Farms/Show_Month",
-            //{
-            //    farmId: x
-            //},
             function (usageData) {
                 var x = 0;
                 if (usageData.length > 0) {

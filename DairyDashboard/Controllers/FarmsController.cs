@@ -322,10 +322,17 @@ namespace DairyDashboard.Controllers
             }
             compareFarmEnergySum = compareFarmEnergySum / 4;
 
+            var OnGrid = electricityData.Where(x => x.FarmId == farmId && x.CurrentUsage > 0 && x.TypeId == 1).ToArray();
+            var OnGridSum = OnGrid.Select(x => x.CurrentUsage).Sum();
+            var Renewable = electricityData.Where(x => x.FarmId == farmId && x.CurrentUsage > 0 && x.TypeId == 2).ToArray();
+            var RenewableSum = Renewable.Select(x => x.CurrentUsage).Sum();
+
             obj.Add(singleFarmSum);
             obj.Add(compareFarmSum);
             obj.Add(singleFarmEnergySum);
             obj.Add(compareFarmEnergySum);
+            obj.Add(OnGridSum);
+            obj.Add(RenewableSum);
             
             return Json(obj);
         }
