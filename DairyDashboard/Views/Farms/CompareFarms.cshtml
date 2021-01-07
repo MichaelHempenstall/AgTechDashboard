@@ -152,10 +152,8 @@
 
     function ClearOldMessages() {
         document.getElementById("NoDataLabel").innerHTML = "";
-        for (z = 0; z <= 5; z++) {
-            var exists = document.getElementById('canvasId-' + z);
-            if (exists != null)
-                document.getElementById('canvasId-' + z).remove();
-        }
+        document.getElementById("leftChart").innerHTML = "";
+        document.getElementById("midChart").innerHTML = "";
+        document.getElementById("rightChart").innerHTML = "";
     }
 </script>
