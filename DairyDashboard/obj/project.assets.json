@@ -9014,11 +9014,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mhemp\\source\\repos\\DairyDashboard\\DairyDashboard\\DairyDashboard.csproj",
+      "projectUniqueName": "D:\\tmp\\DairyDashboard\\DairyDashboard\\DairyDashboard.csproj",
       "projectName": "DairyDashboard",
-      "projectPath": "C:\\Users\\mhemp\\source\\repos\\DairyDashboard\\DairyDashboard\\DairyDashboard.csproj",
+      "projectPath": "D:\\tmp\\DairyDashboard\\DairyDashboard\\DairyDashboard.csproj",
       "packagesPath": "C:\\Users\\mhemp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mhemp\\source\\repos\\DairyDashboard\\DairyDashboard\\obj\\",
+      "outputPath": "D:\\tmp\\DairyDashboard\\DairyDashboard\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -207,6 +207,11 @@ namespace DairyDashboard.Controllers
             return Json(obj);
         }
 
+
+        /// <summary>
+        /// show a sample week for butterfly farm 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Show_Week()
         {
             int farmId = 1;
@@ -215,8 +220,8 @@ namespace DairyDashboard.Controllers
             List<object> obj = new List<object>();
 
             DateTime dateStart = new DateTime(2020, 11, 08);
-            DateTime dateEnd = new DateTime(2020, 11, 14);
-            var singleFarmData = usageData.Where(x => x.FarmId == farmId && x.ValueDateTime >= dateStart && x.ValueDateTime <= dateEnd).ToArray();
+            DateTime dateEnd = new DateTime(2020, 11, 15);
+            var singleFarmData = usageData.Where(x => x.FarmId == farmId && x.ValueDateTime > dateStart && x.ValueDateTime < dateEnd).ToArray();
             var machinery = singleFarmData.Select(x => x.MachineId).ToList().Distinct();
 
             foreach (var item in machinery)
@@ -242,6 +247,10 @@ namespace DairyDashboard.Controllers
             return Json(obj);
         }
 
+        /// <summary>
+        /// show a sample month for butterfly farm 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Show_Month()
         {
             int farmId = 1;
@@ -250,8 +259,8 @@ namespace DairyDashboard.Controllers
             List<object> obj = new List<object>();
 
             DateTime dateStart = new DateTime(2020, 11, 01);
-            DateTime dateEnd = new DateTime(2020, 11, 30);
-            var singleFarmData = usageData.Where(x => x.FarmId == farmId && x.ValueDateTime >= dateStart && x.ValueDateTime <= dateEnd).ToArray();
+            DateTime dateEnd = new DateTime(2020, 12, 01);
+            var singleFarmData = usageData.Where(x => x.FarmId == farmId && x.ValueDateTime > dateStart && x.ValueDateTime < dateEnd).ToArray();
             var machinery = singleFarmData.Select(x => x.MachineId).ToList().Distinct();
 
             foreach (var item in machinery)
